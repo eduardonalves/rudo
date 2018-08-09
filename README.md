@@ -1,2 +1,2 @@
 # Rudo
-App para automação de filas.
+App para automação de filas a distância.

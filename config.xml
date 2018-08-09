@@ -35,7 +35,7 @@
             <param name="URL_SCHEME" value="com.entregapp.entregapp" />
         </gap:plugin>
         <gap:plugin name="cordova-plugin-facebook" spec="0.2.2" source="npm">
-            <param name="FACEBOOK_APP_ID" value="111991969424960" />
+            <param name="FACEBOOK_APP_ID" value="" />
             <param name="FACEBOOK_DISPLAY_NAME" value="Rudo" />
         </gap:plugin>
         <plugin name="cordova-plugin-camera" spec="~2.4.1" />

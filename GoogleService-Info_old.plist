@@ -13,7 +13,7 @@
 	<key>ANDROID_CLIENT_ID</key>
 	<string>234644857834-qei5hdfr2bsuahr1h2uvt47jaeejvp4r.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDTIc7gDj0ovpa4SHpd6IUnYMcoKEamRvs</string>
+	<string></string>
 	<key>GCM_SENDER_ID</key>
 	<string>234644857834</string>
 	<key>PLIST_VERSION</key>
@@ -35,7 +35,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:234644857834:ios:fda61af9ba77d27b</string>
+	<string></string>
 	<key>DATABASE_URL</key>
 	<string>https://hudo-1316.firebaseio.com</string>
 </dict>

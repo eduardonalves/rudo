@@ -1,0 +1,105 @@
+<ion-view title="Minha Conta" overflow-scroll="true"  id="assine" class="bg-dark" >
+  <ion-content padding="true" class="has-header" >
+      <ion-scroll delegate-handle="taskScroll" direction="y" ng-show="showContent == true" >
+    <div ng-show="conectDiv == true">
+      <div class="list">
+        <a class="item bg-orange" href="#" style="text-align:center;">
+           <span ng-if="datauser.role==2" >Estabelecimento</span> <span ng-if="datauser.role==3" >Usuário</span>
+
+        </a>
+        <a class="item bg-black item-avatar" >
+          <img src="{{user.photoURL}}" ng-if="user.photoURL != null">
+          <img src="img/user.png" ng-if="user.photoURL == null">
+
+          <h2>{{datauser.nome}}</h2>
+          <p>{{datauser.email}}</p>
+        </a>
+        <label class="item item-input bg-black" id="signup-input5">
+          <span class="input-label">Nome</span>
+          <input type="text" placeholder="Nome do Estabelecimento" maxlength="100" ng-model="datauser.nome" name="nome"  id="nome">
+        </label>
+        <label class="item bg-black item-input item-select">
+          <div class="input-label bg-black">
+            Categoria
+          </div>
+
+          <select  ng-model="datauser.categoria"  name="categoria" id="categoria">
+            <option value="" >Selecione</option>
+            <option ng-repeat="optCat in optCategorias | orderBy:['valor']" ng-selected="datauser.categoria==optCat.chave" value="{{optCat.chave}}" ng-if="optCat.chave != undefined && optCat.chave != 'undefined'  && optCat.chave != ''" >{{optCat.valor}} </option>
+          </select>
+        </label>
+        <label class="item item-input bg-black" id="signup-endereco">
+          <span class="input-label">Endereco</span>
+          <input type="text" placeholder="Endereco " maxlength="150" ng-model="datauser.endereco" name="endereco"  id="endereco">
+        </label>
+        <label class="item item-input bg-black" id="signup-bairro">
+          <span class="input-label">Bairro</span>
+          <input type="text" placeholder="Bairro " maxlength="50" ng-model="datauser.bairro" name="bairro"  id="bairro">
+        </label>
+        <label class="item item-input bg-black" id="signup-cidade">
+          <span class="input-label">Cidade</span>
+          <input type="text" placeholder="Cidade" maxlength="50" ng-model="datauser.cidade" name="cidade"  id="cidade">
+        </label>
+        <label class="item item-input bg-black" id="signup-uf">
+          <span class="input-label">UF</span>
+          <input type="text" placeholder="UF" maxlength="2" ng-model="datauser.uf" name="uf"  id="uf">
+        </label>
+        <label class="item item-input bg-black" id="signup-telefone1">
+          <span class="input-label">Telefone </span>
+          <input type="text" placeholder="Telefone " maxlength="15" ng-model="datauser.telefone1" name="telefone1"  id="telefone1">
+        </label>
+        <label class="item item-input bg-black" id="signup-telefone1">
+          <span class="input-label">Telefone </span>
+          <input type="text" placeholder="Telefone " maxlength="15" ng-model="datauser.telefone2" name="telefone2"  id="telefone2">
+        </label>
+        <label class="item item-input bg-black" id="signup-input5">
+          <span class="input-label">Limite de Senhas diárias</span>
+          <input type="text" placeholder="Limite de senhas díarias" class="numeric" maxlength="10" ng-model="datauser.limit" name="limit"  id="limite">
+        </label>
+        <li class="item bg-black item-toggle">
+           Fila Rudo VIP - Preferencial
+           <label class="toggle toggle-assertive">
+             <input type="checkbox" ng-model="datauser.rudovip" id="rudovip">
+             <div class="track">
+               <div class="handle"></div>
+             </div>
+           </label>
+        </li>
+        <li class="item bg-black item-toggle">
+           Oferece desconto?
+           <label class="toggle toggle-assertive">
+             <input type="checkbox" ng-model="datauser.desconto" id="desconto">
+             <div class="track">
+               <div class="handle"></div>
+             </div>
+           </label>
+        </li>
+        <label class="item item-input bg-black" id="signup-desconto">
+          <span class="input-label">Porcentagem</span>
+          <input type="text" placeholder="Exemplo: 10" class="numeric" maxlength="2" ng-model="datauser.porcentagem" name="porcentagem"  id="porcentagem">
+        </label>
+        <label class="item item-input bg-black" id="signup-condicoes">
+          <span class="input-label">Condições p/ o desconto </span>
+          <input type="text" placeholder="Exemplo: Desconto válido apenas de segunda a sexta-feira" maxlength="100" ng-model="datauser.condicoes" name="condicoes"  id="condicoes">
+        </label>
+        <input type="hidden" name="active"  ng-model="datauser.uid">
+        <input type="hidden" name="active"  ng-model="datauser.active">
+        <input type="hidden" name="email"  ng-model="datauser.email">
+        <input type="hidden" name="foto"  ng-model="datauser.foto">
+        <input type="hidden" name="nome"  ng-model="datauser.nome">
+        <input type="hidden" name="role"  ng-model="datauser.role">
+
+        <button id="editar" class="button bg-orange button-block" ng-click="editarUsuario(datauser)">Salvar</button>
+      </div>
+    </div>
+    <div class="list card" ng-show="conectDiv == false">
+      <div class="item item-body bg-black " >
+        <h2 style="text-align:center;">
+          Ops algo deu errado. <br> Verifique a sua conexão com a internet.<br><br>
+      </h2>
+      </div>
+    </div>
+    <br><br><br><br><br>
+    </ion-scroll>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,80 @@
+<ion-view title="Configurar Senha" overflow-scroll="true" class="bg-dark" id="cadastrarfilas" >
+  <!--<ion-content padding="true" class="has-header">-->
+  <ion-content padding="true" class="has-header" >
+    <ion-scroll delegate-handle="taskScroll" direction="y" ng-show="showContent == true" >
+    <form id="form-cadastrar-fila" class="list" ng-show="conectDiv == true">
+      <ion-list id="login-list1">
+        <label class="item bg-black item-input" id="fila-input">
+          <span class="input-label">Fila</span>
+          <input type="text" placeholder="Nome da Fila" class="bg-black" value="{{retornaNome(fila.nome)}}" readonly="readonly">
+        </label>
+        <input type="hidden" placeholder="Nome da Fila" ng-model="fila.nome">
+
+        <li class="item bg-black item-toggle" ng-show="notToShow==true">
+           Prioridade
+           <label class="toggle toggle-assertive">
+             <input type="checkbox" ng-model="fila.prioridade">
+             <div class="track">
+               <div class="handle"></div>
+             </div>
+           </label>
+        </li>
+        <li class="item  bg-black item-toggle" ng-show="notToShow==true">
+           Fila Manual
+           <label class="toggle toggle-assertive">
+             <input type="checkbox" ng-model="fila.manual">
+             <div class="track">
+               <div class="handle"></div>
+             </div>
+           </label>
+        </li>
+        <ion-list ng-show="notToShow==true">
+          <ion-radio ng-model="fila.qtd_prioridade" ng-value="'2'">2 prioritários para 1 normal</ion-radio>
+          <ion-radio ng-model="fila.qtd_prioridade" ng-value="'3'">3 priaritários para 1 normal</ion-radio>
+        </ion-list>
+        <label class="item bg-black item-input" id="fila-input" ng-show="notToShow==true">
+          <span class="input-label">Raio de Ação</span>
+          <input type="text" placeholder="Ex.: 0.5 para 500m ou 10.5 para 10km " ng-model="fila.raio">
+        </label>
+        <label class="item bg-black item-input" id="fila-input" >
+          <span class="input-label">Número Inicial</span>
+          <input type="text" placeholder="Ex.: 1 " ng-model="fila.numero_contador">
+        </label>
+        <label class="item bg-black item-input" id="fila-input">
+          <span class="input-label">Prefixo do Número</span>
+          <input type="text" placeholder="Ex.: CM ou PR " ng-model="fila.prefixo">
+        </label>
+        <li class="item bg-black item-toggle" ng-show="notToShow==true">
+           Gerar numero à distância
+           <label class="toggle toggle-assertive">
+             <input type="checkbox" ng-model="fila.numero_distancia">
+             <div class="track">
+               <div class="handle"></div>
+             </div>
+           </label>
+        </li>
+        <li class="item bg-black item-toggle">
+           Ativa
+           <label class="toggle toggle-assertive">
+             <input type="checkbox" value="true" ng-model="fila.ativa">
+             <div class="track">
+               <div class="handle"></div>
+             </div>
+           </label>
+        </li>
+      </ion-list>
+        <input type="hidden"  ng-model="fila.user_id" >
+      <button id="login-button1" class="button bg-orange  button-block" ng-click="cadastrarFila(fila)">Salvar</button>
+
+    </form>
+    <div class="list card" ng-show="conectDiv == false">
+      <div class="item item-body bg-black " >
+        <h2 style="text-align:center;">
+          Ops algo deu errado. <br> Verifique a sua conexão com a internet.<br><br>
+      </h2>
+      </div>
+    </div>
+    <br><br><br><br><br>
+   </ion-scroll>
+  </ion-content>
+</ion-view>

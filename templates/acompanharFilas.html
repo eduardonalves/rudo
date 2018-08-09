@@ -1,0 +1,107 @@
+
+<ion-view title="Configurações" id="page2" class="bg-dark" overflow-scroll="true"  class="">
+
+  <!--<ion-content padding="true" class="has-header"> -->
+<ion-content padding="true" class="has-header" >
+  <!--inicio div stabelecimento-->
+  <ion-scroll delegate-handle="taskScroll" direction="y" ng-show="showContent == true" >
+    <div   ng-show="showContent==true">
+
+  <div class="estabelecimento" ng-if="datauser.role==2" ng-show="conectDiv == true">
+
+    <div class="list">
+      <br>
+
+      <div class="item item-thumbnail-left bg-black " >
+        <img src="{{datauser.foto}}" ng-if="datauser.foto != null">
+        <img src="img/user.png" ng-if="datauser.foto == null">
+
+        <h2 ng-show="datauser.nome != null">{{datauser.nome}}</h2>
+        <h2 ng-show="datauser.nome == null">Sem Nome - adiocionar na minha conta</h2>
+        <p>{{datauser.email}}</p>
+        <p ng-show="datauser.categoriaNome != null">{{datauser.categoriaNome}}</p>
+        <p ng-show="datauser.categoriaNome == null">Sem Categoria - adiocionar na minha conta</p>
+        <p>
+          Conta Estabelecimento
+        </p>
+      </div>
+      <br>
+      <a class="button button-full icon-right ion-chevron-right bg-orange item" ui-sref="minhaconta">
+        Minha Conta
+      </a>
+      <a class="button button-full  icon-right ion-chevron-right bg-orange item" ui-sref="configurarsenhas">
+        Senhas
+      </a>
+      <a class="button button-full icon-right ion-chevron-right bg-orange item" ui-sref="guiches">
+        Guichês
+      </a>
+      <button class="button button-full bg-orange icon-right ion-ios-albums" ng-click="getImage()" ng-show="userLoggedOn.photoURL==null">
+        Foto
+      </button>
+      <button class="button button-full bg-orange icon-right ion-log-out" ng-click="logout()" >
+        Desconectar e Sair
+      </button>
+    <!--  <a class="button button-full icon-right ion-chevron-right bg-orange item" ui-sref="assine">
+        Assine
+      </a>
+      <a class="button button-full icon-right ion-chevron-right bg-orange item" ng-click="cancelar()">
+        Cancelar conta Premium
+      </a>-->
+    </div>
+  </div>
+  <!--fim div estabelecimento-->
+  <!--inicio div estabelecimento-->
+  <div class="cliente" ng-if="datauser.role==3" ng-show="conectDiv == true">
+    <br>
+
+    <div class="item item-avatar bg-black " >
+      <img src="{{datauser.foto}}" ng-if="datauser.foto != null">
+      <img src="img/user.png" ng-if="datauser.foto == null">
+
+      <h2>{{datauser.nome}}</h2>
+      <p >{{datauser.email}}</p>
+
+    </div>
+
+    <form id="configForm"  method="post">
+    <label class="item bg-black item-input">
+      <div class="input-label bg-black">
+        Nome
+      </div>
+      <input type="text" name="nome" placeholder="Digite seu nome" min="0" max="200" value="" ng-model="datauser.nome">
+    </label>
+    <label class="item bg-black item-input">
+      <div class="input-label bg-black">
+        Buscar estabelecimentos até {{datauser.raio}} Km
+      </div>
+    </label>
+    <label class="item bg-black item-input">
+
+      <input type="range" name="km" min="0" max="200" ng-model="datauser.raio" >
+    </label>
+
+    <button class="button button-full bg-orange icon-right ion-ios-albums" ng-click="getImage()" ng-show="userLoggedOn.photoURL==null">
+      Foto
+    </button>
+    <button class="button button-full bg-orange icon-right ion-checkmark-round" ng-click="setRaio(datauser)">
+      Salvar Configuração
+    </button>
+    <button class="button button-full bg-orange icon-right ion-log-out" ng-click="logout()" ng-show="userLoggedOn.photoURL==null">
+      Desconectar e Sair
+    </button>
+      </form>
+  </div>
+
+  <!--fim div estabelecimento-->
+      <div class="list card" ng-show="conectDiv == false">
+        <div class="item item-body bg-black " >
+          <h2 style="text-align:center;">
+            Ops algo deu errado. <br> Verifique a sua conexão com a internet.<br><br>
+        </h2>
+        </div>
+      </div>
+      <br><br><br><br><br>
+    </div>
+      </ion-scroll>
+  </ion-content>
+</ion-view>

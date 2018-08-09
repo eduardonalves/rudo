@@ -1,0 +1,96 @@
+<ion-view  overflow-scroll="true" title="Estabelecimentos" id="Estabelecimentos" class="bg-dark" >
+  <ion-content padding="true" class="has-Estabelecimentosheader" >
+    <ion-scroll delegate-handle="taskScroll" direction="y" ng-show="showContent == true" >
+    <div class="list card" ng-show="conectDiv == false">
+
+      <div class="item item-body bg-black " >
+
+        <h2 style="text-align:center;">
+          Ops algo deu errado. <br> Verifique a sua conexão com a internet.<br><br>
+      </h2>
+
+      </div>
+
+    </div>
+
+      <div class="list card"  ng-show="hasStore == false && conectDiv != false">
+
+        <div class="item item-body bg-black " >
+
+          <h2 style="text-align:center;">
+            Não encontramos nenhum estabelecimento nesta àrea. <br> Indique o Rudo para um estabelecimento próximo e nos ajude a revolucionar o mundo das filas.<br><br>
+        </h2>
+
+        </div>
+
+      </div>
+      <br ng-show="hasStore == true && conectDiv != false">
+      <label class="item item-input bg-black" id="acompanharFilas-search1" ng-show="hasStore == true && conectDiv != false">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="search" placeholder="Filtrar" ng-model="filtro" id="filtro">
+      </label>
+
+      <div class="list card" ng-repeat="lj in lojas | filter:filtro" ng-show=" hasStore == true && conectDiv != false">
+
+        <div class="item item-thumbnail-left bg-black ">
+          <img src="{{lj.foto}}" ng-if="lj.foto != null">
+          <img src="img/user.png" ng-if="lj.foto == null">
+
+          <h2 ng-if="lj.nome != null">{{lj.nome}}</h2>
+          <h2 ng-if="lj.nome == null">Estabelecimento</h2>
+          <p ng-if="lj.categoriaNome == null">
+            Sem categoria
+          </p>
+          <p ng-if="lj.categoriaNome != null">
+            {{lj.categoriaNome}}
+          </p>
+          <p >{{lj.email}}</p>
+
+
+          <p>
+            <a  class="subdued segue{{lj.segue}}" id="seguir{{lj.id}}" ng-click="seguirEstabelecimento('{{lj.id}}')"><i class="icon ion-heart"></i>&nbsp; Seguir</a>
+
+            <a href="#gerarsenhasclientes/{{lj.id}}" class="subdued"><i class="icon ion-ios-pricetags" ng-click="verFila('{{lj.id}}')"></i>&nbsp; Senhas</a>
+            <a href="#/painelloja/{{lj.id}}" class="subdued"><i class="icon ion-person-stalker" ></i>&nbsp; Fila</a>
+          </p>
+        </div>
+
+
+
+        <div class="item item-text-wrap bg-black" ng-show="lj.endereco != null || (lj.desconto == 1 && lj.porcentagem != null) ">
+          <p style="text-align:center;">
+            <span id="endereco" ng-show="lj.endereco != null" > {{lj.endereco}}</span>
+            <br ng-show="lj.bairro != null || lj.cidade != null || lj.uf != null" >
+            <span id="bairro" ng-show="lj.bairro != null" >{{lj.bairro}}</span>
+
+            <span id="cidade" ng-show="lj.cidade != null" > - {{lj.cidade}}</span>
+            <span id="uf" ng-show="lj.uf != null"> - {{lj.uf}}</span>
+            <br ng-show="lj.telefone1 != null || lj.telefone2 != null"   >
+            <span id="telefone1" ng-show="lj.telefone1 != null"> Tel: {{lj.telefone1}}</span>
+            <span id="telefone2" ng-show="lj.telefone2 != null"> - Tel: {{lj.telefone2}}</span>
+            <br ng-show="lj.condicoes != null">
+            <small  ng-show="lj.condicoes != null && lj.desconto == 1 && lj.porcentagem != null">
+              * {{lj.condicoes}}
+            </small>
+          </p>
+
+        </div>
+        <a class="item item-icon-left bg-black" href="#" ng-show="lj.rudovip == 1">
+          <i class="icon ion-bowtie bgvip"></i>
+          <span class="bgvip">Fila Rudo VIP - Preferencial</span>
+        </a>
+        <a class="item item-icon-left bg-black" href="#" ng-show="lj.desconto == 1 && lj.porcentagem != null">
+          <i class="icon ion-pricetag bgvip"></i>
+          <span class="bgvip"><span ng-show="lj.condicoes != null">*</span> Oferece {{lj.porcentagem}}% de Desconto</span>
+        </a>
+        <a class="item item-icon-left bg-black" href="#" ng-show="lj.rudovip != 1">
+          <i class="icon ion-ios-people"></i>
+          <span>Fila Rudo - Tradicional</span>
+        </a>
+
+
+      </div>
+      <br><br><br><br><br>
+      </ion-scroll>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,32 @@
+<ion-view title="Guichês" overflow-scroll="true" class="bg-dark" id="guiches" ng-controller="guichesCtrl">
+  <ion-content padding="true" class="has-header" >
+
+
+      <div class="lista" ng-show="conectDiv == true">
+        <div class="item item-input-inset bg-black" >
+          <label class="item-input-wrapper">
+            <input type="text" placeholder="Guichê" name="guiche" ng-model="guiche">
+          </label>
+          <button class="button bg-orange button-small" ng-click="cadastrar(guiche)" >
+            Cadastrar
+          </button>
+        </div>
+        <ion-item class="item-divider bg-orange" id="acompanharFilas-list-item-divider2"> Guichês</ion-item>
+        <div class="item bg-black item-button-right"ng-repeat="(key, value) in items">
+          {{value.guiche}}
+          <button class="button bg-orange"  ng-click="remover('{{key}}')">
+            <i class="icon ion-ios-minus"></i>
+          </button>
+        </div>
+      </div>
+      <div class="list card" ng-show="conectDiv == false">
+        <div class="item item-body bg-black " >
+          <h2 style="text-align:center;">
+            Ops algo deu errado. <br> Verifique a sua conexão com a internet.<br><br>
+        </h2>
+        </div>
+      </div>
+      <br><br><br><br><br>
+
+  </ion-content>
+</ion-view>

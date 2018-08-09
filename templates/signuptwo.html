@@ -1,0 +1,88 @@
+<ion-view title="Registro de Estabelecimentos" class="bg-dark" id="page10"  >
+    <!--<ion-content padding="true" class="has-header">-->
+    <ion-content padding="true" class="has-header">
+        <form class="list" >
+        <ion-list>
+                <label class="item item-input bg-black">
+                    <span class="input-label lb-email">Email</span>
+                    <input type="text" placeholder="Email" ng-blur="validaEmail(user.email)" name="email" ng-model="user.email" id="email" value="" >
+                </label>
+                <label class="item item-input bg-black">
+                    <span class="input-label lb-password">Senha</span>
+                    <input type="password" placeholder="Senha" password="password" ng-model="user.password" value="" id="password">
+                </label>
+                <label class="item item-input bg-black">
+                    <span class="input-label lb-password">Confirma Senha</span>
+                    <input type="password" placeholder="Confirma Senha" password="cpassword" ng-blur="difpassword(user)" ng-model="user.cpassword" value="" id="cpassword">
+                </label>
+            </ion-list>
+            <div class="divAviso">
+                <span class="aviso-senha bg-orange" >Senhas diferentes</span>
+            </div>
+            <div class="divAvisoEmail">
+                <span class="aviso-senha bg-orange" >Formato de email inválido</span>
+            </div>
+            <div class="divAvisoEmailUso">
+                <span class="aviso-erro bg-orange" >Email em uso</span>
+            </div>
+            <div class="divAvisoCadastro">
+                <span class="aviso-cadastro bg-orange" ></span>
+            </div>
+            <button id="Signuptwo-button3" class="button bg-orange button-block" ng-click="cadastrarUsuario(user)">Cadastrar</button>
+            <!--<button id="Signuptwo-button3" class="button bg-orange  button-block icon-right ion-social-facebook" ng-click="cadastrarUsuarioFacebook(user)">Entrar com Facebook</button>-->
+            <!--<button id="Signuptwo-button3" class="button bg-orange  button-block icon-right ion-social-google" ng-click="cadastrarUsuarioGoogle(user)">Entrar com Google</button>
+            <button id="Signuptwo-button3" class="button bg-orange  button-block icon-right ion-social-twitter" ng-click="cadastrarUsuarioTwitter(user)">Entrar com Twitter</button>-->
+        </form>
+        <style media="screen">
+          .myredcolor
+          {
+            color: red;
+          }
+          .divAviso{
+            display: none;
+          }
+          .divAvisoEmail{
+            display: none;
+          }
+          .divAvisoEmailUso{
+            display: none;
+          }
+          .divAvisoCadastro{
+            display: none;
+          }
+          .divAvisoCadastro .aviso-cadastro{
+            text-align: center;
+            display: block;
+            margin-top: 6px;
+            width: 136px;
+            margin: 6px auto;
+            display: block;
+          }
+          .divAviso .aviso-senha{
+            text-align: center;
+            display: block;
+            margin-top: 6px;
+            width: 136px;
+            margin: 6px auto;
+            display: block;
+          }
+          .divAvisoEmail .aviso-senha{
+            text-align: center;
+            display: block;
+            margin-top: 6px;
+            width: 136px;
+            margin: 6px auto;
+            display: block;
+          }
+
+          .divAvisoEmailUso .aviso-erro{
+            text-align: center;
+            display: block;
+            margin-top: 6px;
+            width: 136px;
+            margin: 6px auto;
+            display: block;
+          }
+        </style>
+    </ion-content>
+</ion-view>

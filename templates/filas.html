@@ -1,0 +1,67 @@
+<ion-view title="{{tituloPagina}}" overflow-scroll="true" class="bg-dark" id="page10" >
+<!--  <ion-content padding="false" class="has-header">-->
+<div padding="true" class="has-header" >
+  <!--inicio div Estabelecimento-->
+    <ion-scroll delegate-handle="taskScroll" direction="y" ng-show="showContent==true">
+      
+  <div class="estabelecimento" ng-if="datauser.role==2" ng-show="conectDiv == true">
+    <div id="acompanharFilas-form5" class="list" >
+      <label class="item bg-black item-input item-select">
+        <div class="input-label bg-black">
+          Guichê
+        </div>
+        <select ng-model="guiche" ng-change="changeGuiche(guiche)">
+          <option value="" >Selecione</option>
+          <option ng-repeat="(key, value) in guiches" value="{{value.guiche}}" >{{value.guiche}}</option>
+        </select>
+      </label>
+      <button class="button button-full bg-orange icon-right ion-person-stalker" ng-if="showComum == true" ng-click="chamarComum()">
+        Chamar Senha Comum
+      </button>
+      <button class="button button-full bg-orange icon-right ion-person" ng-if="showPrioridade == true" ng-click="chamarPrioritario()">
+        Chamar Senha Prioritária
+      </button>
+      <button class="button button-full bg-orange icon-right ion-pricetags" ng-if="showManual == true" ui-sref="versenhas">
+        Chamar Manualmente
+      </button>
+    </div>
+  </div>
+  <!--fim div Estabelecimento-->
+  <!--Inicio div Cliente-->
+  <div class="cliente" ng-if="datauser.role==3" ng-show="conectDiv == true">
+    <input type="hidden" name="name" value="" ng-model="filtro" id="filtro">
+    <div class="list" >
+      <div class="item bg-black" ng-repeat="item in senhasAnteriores | orderBy:'-data'"   ng-click="verFila(item.loja_id)" >
+        <p class="p_senha" style="text-align: center; color:#fff; font-weight:bolder;font-size:150%; display: block;margin-bottom: 6px;">{{item.numero}}</p>
+        <p class="p_senha" style="text-align: center; font-size:80%;">Data {{item.data}} </p>
+        <p class="p_senha" style="text-align: center; font-size:80%;" ng-if="item.data_hora_chamada != null">{{item.data_hora_chamada}}</p>
+        <p class="p_senha" style="text-align: center; font-size:80%;" ng-if="item.loja != null || item.loja_email != null">{{item.loja}} <span ng-if="item.loja_email != null">  </span>{{item.loja_email}}</p>
+      </div>
+      <!--<ion-infinite-scroll distance="2"on-infinite="loadMoreData()" ng-if="!moredata"  >
+      </ion-infinite-scroll>-->
+    </div>
+    <div class="list card" ng-show="hasSenhas==false">
+
+      <div class="item item-body bg-black " >
+
+        <h2 style="text-align:center;">
+          Você ainda não tem nenhuma senha. <br> Escolha uma loja na aba senhas tente pegar uma.<br><br>
+      </h2>
+
+      </div>
+
+    </div>
+  </div>
+  <!--fim div Cliente-->
+  <div class="list card" ng-show="conectDiv == false">
+    <div class="item item-body bg-black " >
+      <h2 style="text-align:center;">
+        Ops algo deu errado. <br> Verifique a sua conexão com a internet.<br><br>
+    </h2>
+    </div>
+  </div>
+  <br><br><br><br><br>
+  </ion-scroll>
+</ion-content>
+
+</div>

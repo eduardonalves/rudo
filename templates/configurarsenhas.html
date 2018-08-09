@@ -1,0 +1,41 @@
+
+<ion-view  overflow-scroll="true" title="Configurar Senhas" class="bg-dark" id="configurarsenhas" >
+
+  <!--<ion-content padding="true" class="has-header"> -->
+<ion-content  padding="true" class="has-header" >
+
+    <form id="acompanharFilas-form5" class="list" ng-show="conectDiv == true" >
+    <!--  <a class="button button-full icon-right icon ion-plus" ui-sref="cadastrarfilas" >
+        Novo
+      </a>-->
+      <!--<label class="item item-input" id="acompanharFilas-search1">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="search" placeholder="Filtrar" ng-model="filtro">
+        <a class="button button-clear button-positive button-icon icon ion-plus " ui-sref="cadastrarfilas">
+        </a>
+      </label>-->
+      <div class="" ng-repeat="item in items | filter : filtro">
+        <div class="list">
+          <a class="button bg-orange button-full icon-right ion-chevron-right item" ng-repeat="(key, value) in item" ng-click="irEditarFila('{{key}}')" >
+            {{retornaNome(value.nome)}} - {{showTrueFalse(value.ativa)}}
+          </a>
+        </div>
+        <ion-item class="item bg-orange" ng-show="totalItens == 0">
+          <h2>Não existem filas cadastradas</h2>
+        </ion-item>
+      </div>
+
+
+
+    </form>
+    <div class="list card" ng-show="conectDiv == false">
+      <div class="item item-body bg-black " >
+        <h2 style="text-align:center;">
+          Ops algo deu errado. <br> Verifique a sua conexão com a internet.<br><br>
+      </h2>
+      </div>
+    </div>
+    <br><br><br><br><br>
+     
+  </ion-content>
+</ion-view>

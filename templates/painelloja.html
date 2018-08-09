@@ -1,0 +1,54 @@
+<ion-view title="Painel" class="bg-dark" id="page4"  >
+  <!--<ion-content class="has-header" padding="true"  >-->
+  <ion-content padding="true" class="has-header" >
+    <ion-scroll delegate-handle="taskScroll" direction="y">
+    <!--inicio div stabelecimento-->
+    <div class="estabelecimento" ng-if="datauser.role==2" ng-show="conectDiv == true">
+      <div class="item bg-orange" ng-show="senha.numero == null">
+
+        <p class="p_senha" style="text-align: center; font-size: 100%; color:#fff;" ng-show="senha.numero == null" > Nenhuma Senha Chamada</p>
+
+      </div>
+      <input type="hidden" name="name" value="" ng-model="filtro" id="filtro">
+      <div class="list" ng-show="senha.numero != null" >
+        <ion-item class="item-divider bg-orange" id="painel-list-item-divider2" style="text-align:center;" ng-if="minhasenha != NULL && minhasenha != ''" >Minha Senha</ion-item>
+        <div class="item bg-black" ng-if="minhasenha != NULL && minhasenha != ''"   >
+          <p class="p_senha" style="text-align: center; color:#fff; font-weight:bolder;font-size:150%; ">{{minhasenha.numero}}</p>
+        </div>
+        <ion-item class="item-divider bg-orange" id="painel-list-item-divider2" style="text-align:center;">Senha Atual</ion-item>
+
+        <div class="item bg-black" >
+          <h2 class="h2_senha" style="text-align: center; font-size: 300%;font-weight: bolder;">{{senha.numero}}</h2>
+          <p class="p_senha" style="text-align: center; font-size: 100%;" ng-show="senha.guiche != null"> Local: {{senha.guiche}}</p>
+          <p class="p_senha" style="text-align: center; font-size: 100%;">{{senha.data_hora_chamada}}</p>
+        </div>
+
+        <ion-item class="item-divider bg-orange" id="painel-list-item-divider2" style="text-align:center;">Senhas Anteriores</ion-item>
+
+        <div class="item bg-black" ng-repeat="item in senhasAnteriores | filter:filtro" ng-if="item.numero != senha.numero"   >
+          <p class="p_senha" style="text-align: center; color:#fff; font-weight:bolder;font-size:150%; ">{{item.numero}}</p>
+          <p class="p_senha" style="text-align: center; font-size:80%;" ng-show="item.guiche != null"> Local {{item.guiche}}</p>
+          <p class="p_senha" style="text-align: center; font-size:80%;">{{item.data_hora_chamada}}</p>
+        </div>
+        <!--<ion-infinite-scroll distance="2"on-infinite="loadMoreData()" ng-if="!moredata"  >
+        </ion-infinite-scroll>-->
+      </div>
+    </div>
+    <!--fim div estabelecimento-->
+    <!--inicio div cliente-->
+    <div class="cliente" ng-if="datauser.role==3" ng-show="conectDiv == true">
+      conteudo cliente
+    </div>
+    <div class="list card" ng-show="conectDiv == false">
+      <div class="item item-body bg-black " >
+        <h2 style="text-align:center;">
+          Ops algo deu errado. <br> Verifique a sua conexão com a internet.<br><br>
+      </h2>
+      </div>
+    </div>
+    <br><br><br><br><br>
+    <!--fim div cliente-->
+    </ion-scroll>
+
+  </ion-content>
+</ion-view>

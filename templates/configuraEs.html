@@ -1,0 +1,110 @@
+<ion-view title="{{titulo}}" class="bg-dark" id="page4"  overflow-scroll="true"   >
+  <!--<ion-content class="has-header" padding="true"  >-->
+  <ion-content padding="true" class="has-header" >
+    <ion-scroll delegate-handle="taskScroll" direction="y" ng-show="showContent == true" >
+    <div  ng-show="showContent==true">
+    <!--inicio div stabelecimento-->
+    <div class="estabelecimento" ng-if="datauser.role==2" ng-show="conectDiv == true">
+      <div class="item bg-orange" ng-show="senha.numero == null">
+
+    <p class="p_senha" style="text-align: center; font-size: 100%; color:#fff;" ng-if="noticket == true" > Nenhuma Senha Chamada</p>
+      <input type="hidden" name="name" value="" ng-model="filtro" id="filtro">
+
+      </div>
+      <div class="list" ng-show="senha.numero != null" >
+        <ion-item class="item-divider bg-orange" id="painel-list-item-divider2" style="text-align:center;">Senha Atual</ion-item>
+
+        <div class="item bg-black" >
+          <h2 class="h2_senha" style="text-align: center; font-size: 300%;font-weight: bolder;">{{senha.numero}}</h2>
+          <p class="p_senha" style="text-align: center; font-size: 100%;" ng-show="senha.guiche != null"> Local: {{senha.guiche}}</p>
+          <p class="p_senha" style="text-align: center; font-size: 100%;">{{senha.data_hora_chamada}}</p>
+        </div>
+        <ion-item class="item-divider bg-orange" id="painel-list-item-divider2" style="text-align:center;">Senhas Anteriores</ion-item>
+        <div class="item bg-black" ng-repeat="item in senhasAnteriores | filter:filtro" ng-if="item.numero != senha.numero"   >
+          <p class="p_senha" style="text-align: center; color:#fff; font-weight:bolder;font-size:150%; ">{{item.numero}}</p>
+          <p class="p_senha" style="text-align: center; font-size:80%;" ng-show="item.guiche != null"> Local {{item.guiche}}</p>
+          <p class="p_senha" style="text-align: center; font-size:80%;">{{item.data_hora_chamada}}</p>
+        </div>
+        <!--<ion-infinite-scroll distance="2"on-infinite="loadMoreData()" ng-if="!moredata"  >
+        </ion-infinite-scroll>-->
+      </div>
+    </div>
+    <!--fim div estabelecimento-->
+    <!--inicio div cliente-->
+    <div class="cliente" ng-if="datauser.role==3" ng-show="conectDiv == true">
+      <input type="hidden" name="filtro2" value="" ng-model="filtro2" id="filtro2">
+      <div class="list card" ng-repeat="lj in lojas | filter:filtro2 | orderBy:['nome']">
+
+      <div class="item item-thumbnail-left bg-black ">
+        <img src="{{lj.foto}}" ng-if="lj.foto != null">
+        <img src="img/user.png" ng-if="lj.foto == null">
+        <h2 ng-if="lj.nome != null">{{lj.nome}}</h2>
+        <h2 ng-if="lj.nome == null">Estabelecimento</h2>
+        <p >{{lj.email}}</p>
+        <p ng-if="lj.categoriaNome != null">{{lj.categoriaNome}}</p>
+        <p ng-if="lj.categoriaNome == null">Sem categoria</p>
+        <p>
+          <a  class="subdued segue{{lj.segue}}" id="seguir{{lj.key}}" ng-click="seguirEstabelecimento('{{lj.key}}')"><i class="icon ion-heart"></i>&nbsp; Seguir</a>
+          <a href="#gerarsenhasclientes/{{lj.key}}" class="subdued"><i class="icon ion-ios-pricetags" ng-click="verFila('{{lj.key}}')"></i>&nbsp; Senhas</a>
+          <a href="#/painelloja/{{lj.key}}" class="subdued"><i class="icon ion-person-stalker" ></i>&nbsp; Fila</a>
+
+        </p>
+      </div>
+        <div class="item item-text-wrap bg-black" ng-show="lj.endereco != null || (lj.desconto == 1 && lj.porcentagem != null) ">
+          <p style="text-align:center;">
+            <span id="endereco" ng-show="lj.endereco != null" > {{lj.endereco}}</span>
+            <br ng-show="lj.bairro != null || lj.cidade != null || lj.uf != null" >
+            <span id="bairro" ng-show="lj.bairro != null" >{{lj.bairro}}</span>
+
+            <span id="cidade" ng-show="lj.cidade != null" > - {{lj.cidade}}</span>
+            <span id="uf" ng-show="lj.uf != null"> - {{lj.uf}}</span>
+            <br ng-show="lj.telefone1 != null || lj.telefone2 != null"   >
+            <span id="telefone1" ng-show="lj.telefone1 != null"> Tel: {{lj.telefone1}}</span>
+            <span id="telefone2" ng-show="lj.telefone2 != null"> - Tel: {{lj.telefone2}}</span>
+            <br ng-show="lj.condicoes != null">
+            <small  ng-show="lj.condicoes != null && lj.desconto == 1 && lj.porcentagem != null">
+              * {{lj.condicoes}}
+            </small>
+          </p>
+
+        </div>
+        <a class="item item-icon-left bg-black" href="#" ng-show="lj.rudovip == 1">
+          <i class="icon ion-bowtie bgvip"></i>
+          <span class="bgvip">Fila Rudo VIP - Preferencial</span>
+        </a>
+        <a class="item item-icon-left bg-black" href="#" ng-show="lj.desconto == 1 && lj.porcentagem != null">
+          <i class="icon ion-pricetag bgvip"></i>
+          <span class="bgvip"><span ng-show="lj.condicoes != null">*</span> Oferece {{lj.porcentagem}}% de Desconto</span>
+        </a>
+        <a class="item item-icon-left bg-black" href="#" ng-show="lj.rudovip != 1">
+          <i class="icon ion-ios-people"></i>
+          <span>Fila Rudo - Tradicional</span>
+        </a>
+
+      </div>
+      <div class="list card" ng-show="lojas=='' && hasLojas=='N'">
+
+        <div class="item item-body bg-black " >
+
+          <h2 style="text-align:center;">
+            Ops! Você não está seguindo nenhum estabelecimento. <br> Escolha estabelecimentos para seguir na aba de senhas.<br><br>
+        </h2>
+
+        </div>
+
+      </div>
+    </div>
+    <!--fim div cliente-->
+
+      <div class="list card" ng-show="conectDiv == false">
+        <div class="item item-body bg-black " >
+          <h2 style="text-align:center;">
+            Ops algo deu errado. <br> Verifique a sua conexão com a internet.<br><br>
+        </h2>
+        </div>
+      </div>
+      <br><br><br><br><br>
+    </div>
+    </ion-scroll> 
+  </ion-content>
+</ion-view>

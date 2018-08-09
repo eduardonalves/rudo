@@ -1,0 +1,39 @@
+<ion-view title="Lista de Senhas" class="bg-dark" id="page10" >
+  <!--<ion-content padding="true" class="has-header">-->
+  <ion-content padding="true" class="has-header" >
+    <ion-scroll delegate-handle="taskScroll" direction="y">
+    <form id="acompanharFilas-form5" class="list" >
+
+      <label class="item  bg-black item-input" id="acompanharFilas-search1">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="text" placeholder="Filtrar" ng-model="filtro" >
+      </label>
+      <label class="item  bg-orange item-input item-select">
+        <div class="input-label">
+          Tipo de Senha
+        </div>
+        <select ng-model="filtro">
+
+          <option value="Comum">Comum</option>
+          <option value="Prioritária" >Prioritária</option>
+          <option value="Manual" >Manual</option>
+        </select>
+      </label>
+      <label class="item  bg-orange item-input item-select">
+        <div class="input-label">
+          Guichê
+        </div>
+        <select class=" bg-orange" ng-model="guiche" ng-change="changeGuiche(guiche)">
+
+          <option ng-repeat="(key, value) in guiches" value="{{value.guiche}}" >{{value.guiche}}</option>
+        </select>
+      </label>
+      <button class="button  bg-orange button-full button-default icon-right ion-speakerphone" ng-repeat="(key, value) in items | filter:filtro " ng-show="mostrar==true" ng-click="chamarSenhaId(value,value[5],guiche)" >
+        Senha : {{value[2]}} <br> Data: {{value[1]}}
+      </button>
+    </form>
+    <br><br><br><br><br>
+    </ion-scroll>
+  </ion-content>
+
+</ion-view>

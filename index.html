@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <script src="phonegap.js"></script>
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="js/ng-cordova.min.js"></script>
+    <script src="js/ng-cordova-oauth.min.js"></script>
+    <!-- AngularFire -->
+    <script src="js/angularfire.min.js"></script>
+    <!-- Firebase -->
+    <script src="js/firebase.js"></script>
+
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "hhjhkdlfklskflka",
+        authDomain: "hudo-1316.firebaseapp.com",
+        databaseURL: "https://hudo-1316.firebaseio.com",
+        storageBucket: "hudo-1316.appspot.com",
+        messagingSenderId: "jhjhjhjhjhjhjh"
+      };
+      firebase.initializeApp(config);
+    </script>
+
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <style type="text/css">
+
+    </style>
+    <script src="js/lib/jquery-1.11.1.min.js"></script>
+    <script src="js/lib/geofire.min.js"></script>
+    <script src="js/lib/firebase-util.min.js"></script>
+    <script src="js/plataform.js" async defer></script>
+    <!--<script src="https://apis.google.com/js/platform.js" async defer></script>-->
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/routes.js"></script>
+
+
+
+    <script src="js/directives.js"></script>
+
+    <script src="js/services.js"></script>
+
+
+
+    <!-- Only required for Tab projects w/ pages in multiple tabs
+    <script src="lib/ionicuirouter/ionicUIRouter.js"></script>
+    -->
+
+  </head>
+  <body ng-app="app" animation="slide-left-right-ios7">
+  <div>
+  <ion-side-menus enable-menu-with-back-views="false" data-componentid="side-menu21">
+    <ion-side-menu-content>
+      <ion-nav-bar class="bar-red">
+        <ion-nav-back-button></ion-nav-back-button>
+        <!--<ion-nav-buttons side="left">
+          <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+        </ion-nav-buttons>-->
+      </ion-nav-bar>
+      <ion-nav-view></ion-nav-view>
+    </ion-side-menu-content>
+    <ion-side-menu side="left" id="side-menu21">
+      <ion-header-bar class="bg-dark">
+        <div class="title">Menu</div>
+      </ion-header-bar>
+      <ion-content ng-controller="menuCtrl" padding="false" class="side-menu-left bg-black has-header ">
+        <ion-list id="menu-list3" data-componentid="list3">
+          <ion-item class="item-icon-right bg-dark" id="menu-list-item1" ui-sref="page" menu-close="" data-componentid="list-item1">Pagina
+            <i class="icon ion-document-text"></i>
+            <ion-option-button class="button-positive"></ion-option-button>
+          </ion-item>
+          <ion-item class="item-icon-right bg-dark" id="menu-list-item16" ui-sref="page2" menu-close="" data-componentid="list-item16">Pagamento
+            <i class="icon ion-card"></i>
+          </ion-item>
+          <ion-item class="item-icon-right bg-dark" id="menu-list-item17" ng-click="logoff()" data-componentid="list-item17">Sair
+            <i class="icon ion-log-out"></i>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-side-menu>
+  </ion-side-menus>
+</div>
+  </body>
+</html>

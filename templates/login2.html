@@ -1,0 +1,29 @@
+<ion-view title="Entrar" class="bg-dark" id="page5" >
+  <!--<ion-content padding="true" class="has-header">-->
+  <ion-content padding="true" class="has-header">
+    <form id="login-form1" class="list">
+      <ion-list id="login-list1 ">
+        <label class="item item-input bg-black" id="login-input1">
+          <span class="input-label">E-mail</span>
+          <input type="text" placeholder="E-mail" autocomplete="off" name="email" ng-model="user.email">
+        </label>
+        <label class="item item-input bg-black" id="login-input2">
+          <span class="input-label">Senha</span>
+          <input type="password" autocomplete="off"  placeholder="Senha" ng-model="user.password">
+        </label>
+      </ion-list>
+
+      <div class="divAvisoLogin">
+          <span class="aviso-login" ></span>
+      </div>
+      <button id="login-button1" ng-click="loginManual(user)" class="button bg-orange button-block">Entrar</button>
+    <!--  <button id="Signuptwo-button3" class="button bg-orange  button-block icon-right ion-social-facebook" ng-click="loginFacebook(user)">Entrar com Facebook</button>-->
+      <br>
+
+      <a ng-click="esqueciasenha(user)" class="button button-clear button-light">
+        Esqueci minha senha.
+      </a>
+    </form>
+
+  </ion-content>
+</ion-view>

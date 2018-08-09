@@ -1,0 +1,95 @@
+1<ion-view overflow-scroll="true" title="Gerar Senhas" class="bg-dark" id="page3" >
+  <!--<ion-content padding="false" class="has-header">-->
+  <ion-content  class="has-header"  >
+      <ion-scroll delegate-handle="taskScroll" direction="y" ng-show="showContent == true" >
+    <div class="item-assertive" ng-repeat="item  in items" ng-show="conectDiv == true">
+      <label class="item bg-black item-input item-select" ng-show="lojaFila.categoria==1">
+        <div class="input-label bg-black">
+          Mesa p/ quantas pessoas?
+        </div>
+        <select ng-model="qtdPessoas"   name="qtdPessoas" id="qtdPessoas" >
+
+          <option value="1" >1</option>
+          <option value="2" >2</option>
+          <option value="3" >3</option>
+          <option value="4" >4</option>
+          <option value="5" >5</option>
+          <option value="6" >6</option>
+          <option value="7" >7</option>
+          <option value="8" >8</option>
+          <option value="9" >9</option>
+          <option value="10" >10</option>
+          <option value="11" >11</option>
+          <option value="12" >12</option>
+          <option value="13" >13</option>
+          <option value="14" >14</option>
+          <option value="15" >15</option>
+          <option value="16" >16</option>
+          <option value="17" >17</option>
+          <option value="18" >18</option>
+          <option value="19" >19</option>
+          <option value="20" >20</option>
+          <option value="21" >21</option>
+          <option value="22" >22</option>
+          <option value="23" >23</option>
+          <option value="24" >24</option>
+          <option value="25" >25</option>
+          <option value="26" >26</option>
+          <option value="27" >27</option>
+          <option value="28" >28</option>
+          <option value="29" >29</option>
+          <option value="30" >30</option>
+          <option value="31" >31</option>
+          <option value="32" >32</option>
+          <option value="33" >33</option>
+          <option value="34" >34</option>
+          <option value="35" >35</option>
+          <option value="36" >36</option>
+          <option value="37" >37</option>
+          <option value="38" >38</option>
+          <option value="39" >39</option>
+          <option value="40" >40</option>
+          <option value="41" >41</option>
+          <option value="42" >42</option>
+          <option value="43" >43</option>
+          <option value="44" >44</option>
+          <option value="45" >45</option>
+          <option value="46" >46</option>
+          <option value="47" >47</option>
+          <option value="48" >48</option>
+          <option value="49" >49</option>
+          <option value="50" >50</option>
+        </select>
+      </label>
+      <div class="" ng-repeat="(key2, value2)  in item "  ng-if="numFilasInativas != 2">
+        <button  ng-class="value2.nome == 1 ? 'button button-full icon-right bg-orange ion-person-stalker' : 'button button-full icon-right bg-orange ion-person' "  ng-if="value2.manual != true && value2.ativa == true"    ng-click="gerarSenha(value2, key2)" >
+          {{retornaNome(value2.nome)}}
+        </button>
+
+      </div>
+      <div class="list card" ng-if="numFilasInativas == 2">
+
+        <div class="item item-body bg-black " >
+
+      <p style="text-align:center; color:#fff;">
+            Opa, não foi dessa vez!
+
+        </p>
+    <p style="text-align:center; color:#fff;">
+          Este estabelecimento não possui fila ativa no momento.
+        </p>
+        </div>
+
+      </div>
+      <button class="button button-full icon-right bg-orange ion-person" type="button" name="button" ng-if="item != '' && item != null && numFilasInativas !=2"  ng-click="cancelarsenha()">Cancelar Senha Atual</button>
+    </div>
+    <div class="list card" ng-show="conectDiv == false">
+      <div class="item item-body bg-black " >
+        <h2 style="text-align:center;">
+          Ops algo deu errado. <br> Verifique a sua conexão com a internet.<br><br>
+      </h2>
+      </div>
+    </div>
+    </ion-scroll>
+  </ion-content>
+</ion-view>

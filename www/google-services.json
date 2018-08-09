@@ -1,0 +1,115 @@
+{
+  "project_info": {
+    "project_number": "234644857834",
+    "firebase_url": "https://hudo-1316.firebaseio.com",
+    "project_id": "hudo-1316",
+    "storage_bucket": "hudo-1316.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:234644857834:android:5fc130e5be53c85d",
+        "android_client_info": {
+          "package_name": "queco.com.br"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "234644857834-qei5hdfr2bsuahr1h2uvt47jaeejvp4r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "queco.com.br",
+            "certificate_hash": "dac761c73e41047fcf4d913b9d42c3c3d1f2401b"
+          }
+        },
+        {
+          "client_id": "234644857834-j9503ve0ar75vhq8f75fcomkh7g1tf3k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDoazudVViefsh3wqO_M6XbaHsnsjIFxfs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "234644857834-ln3irgjn90aebbmqcr4tskk718qj2otn.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.entregapp.entregapp",
+                "app_store_id": "1257235051"
+              }
+            },
+            {
+              "client_id": "234644857834-j9503ve0ar75vhq8f75fcomkh7g1tf3k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:234644857834:android:fda61af9ba77d27b",
+        "android_client_info": {
+          "package_name": "com.entregapp.entregapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "234644857834-prikegqru2096p12ic3ts6pi1i4o37e4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.entregapp.entregapp",
+            "certificate_hash": "dac761c73e41047fcf4d913b9d42c3c3d1f2401b"
+          }
+        },
+        {
+          "client_id": "234644857834-j9503ve0ar75vhq8f75fcomkh7g1tf3k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDoazudVViefsh3wqO_M6XbaHsnsjIFxfs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "234644857834-ln3irgjn90aebbmqcr4tskk718qj2otn.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.entregapp.entregapp",
+                "app_store_id": "1257235051"
+              }
+            },
+            {
+              "client_id": "234644857834-j9503ve0ar75vhq8f75fcomkh7g1tf3k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
